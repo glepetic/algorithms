@@ -1,5 +1,5 @@
-def quick_sort(list_to_sort):
-    if len(list_to_sort) == 0:
+def quicksort(list_to_sort):
+    if len(list_to_sort) <= 1:
         return list_to_sort
 
     pivot = list_to_sort[0]
@@ -12,8 +12,8 @@ def quick_sort(list_to_sort):
         else:
             right_values.append(elem)
 
-    left_sorted_values = quick_sort(left_values)
-    right_sorted_values = quick_sort(right_values)
+    left_sorted_values = quicksort(left_values)
+    right_sorted_values = quicksort(right_values)
     left_sorted_values.append(pivot)
     return left_sorted_values + right_sorted_values
 
@@ -21,5 +21,5 @@ def quick_sort(list_to_sort):
 test_list = [4, 2, 99, 82, 1, 2, 4, 2, 4, 91, 22, 11, 23, 19, 2, 5, 19, 1]
 expected_result = [1, 1, 2, 2, 2, 2, 4, 4, 4, 5, 11, 19, 19, 22, 23, 82, 91, 99]
 
-assert quick_sort(test_list) == expected_result
+assert quicksort(test_list) == expected_result
 print("True!")
